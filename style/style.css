@@ -1,16 +1,24 @@
-/* Default Light Theme */
 body {
-    font-family: 'Comic Sans MS', sans-serif;
-    background: linear-gradient(135deg, #fdfd96, #ffd1dc);
-    color: #333;
-    padding: 20px;
+    font-family: 'Arial', sans-serif; /* Choose a cute font */
+    background-color: #f0f8ff; /* Light background color for a cute look */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    transition: all 0.3s ease-in-out;
+}
+.game-container {
+    background-color: #ffffff; /* White background for the container */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 30px; /* Padding around the content */
+    text-align: center; /* Center-align text */
 }
 
 h1 {
     text-align: center;
-    font-size: 3.5em;
+    font-size: 2.5em; 
+    margin-bottom: 20px;
     color: #ff6f61;
     font-weight: bold;
     animation: bounce 2s infinite; /* Added animation */
@@ -97,6 +105,11 @@ p {
     flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
     justify-content: space-around;
     margin-top: 40px;
+    margin: 10px 0;
+}
+
+.theme-btn:hover, .theme-btn.dark:hover {
+    background-color: #ff1a57;
 }
 
 button {
@@ -287,6 +300,8 @@ button.dark:hover {
     margin-left: -60px;
     opacity: 0;
     transition: opacity 0.3s;
+    width: auto;
+    max-width: 200px;
 }
 
 .tooltip:hover .tooltiptext {
@@ -298,12 +313,12 @@ button.dark:hover {
     display: inline; /* Make sure the icon is visible */
 }
 
+/* Toggle button styles */
 #theme-toggle {
     display: flex; 
     align-items: center;
     cursor: pointer; 
-    justify-items: center;
-    align-items: center;
+    justify-content: center; /* Corrected from justify-items to justify-content */
     margin: 0 auto;
 }
 
@@ -311,4 +326,119 @@ button.dark:hover {
     width: 20px; 
     height: 20px;
     margin-right: 5px; 
+}
+
+/* Feedback Section */
+#feedback-section {
+    margin-top: 40px;
+    padding: 20px;
+    border: 2px solid #ff6f61;
+    border-radius: 15px; /* Rounded corners */
+    background-color: #fff0f5; /* Light pink background */
+    box-shadow: 0 4px 15px rgba(255, 100, 150, 0.3); /* Soft shadow */
+    transition: transform 0.2s; /* Transition effect for hover */
+}
+
+#feedback-section:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+/* Headings */
+h2, .cutie-form h3 {
+    color: #ff4081; /* Heading color */
+    text-align: center; /* Centered heading */
+}
+
+.cutie-form h3 {
+    font-size: 1.5em; /* Increase font size */
+    background-color: rgba(255, 105, 180, 0.2); /* Light background color */
+    padding: 10px; /* Padding around the text */
+    border-radius: 8px; /* Rounded corners for the background */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle text shadow */
+    margin-bottom: 15px; /* Space below the header */
+}
+
+/* Input and Textarea Styles */
+.cutie-input,
+.cutie-textarea,
+#user-name, 
+#user-feedback {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    margin: 10px 0;
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid #ff4081; /* Border color */
+    font-size: 16px; /* Font size */
+    transition: border-color 0.3s; /* Smooth border transition */
+}
+
+.cutie-input:focus,
+.cutie-textarea:focus,
+#user-name:focus, 
+#user-feedback:focus {
+    border-color: #ff6f61; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.cutie-textarea {
+    height: 100px; /* Set a specific height */
+}
+
+/* Button Styles */
+.cutie-button, 
+#submit-feedback {
+    background-color: #ff4081; /* Button background */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    padding: 12px 20px; /* Button padding */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    width: 100%; /* Full width */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.cutie-button:hover,
+#submit-feedback:hover {
+    background-color: #ff6f61; /* Darker shade on hover */
+}
+
+/* Feedback Item Styles */
+.feedback-section {
+    background-color: #f9f9f9; /* Light background for the feedback section */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px; /* Padding around the section */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 600px; /* Maximum width for the feedback section */
+    margin: 20px auto; /* Centering the section */
+}
+
+.feedback-container {
+    margin-top: 15px; /* Space above feedback items */
+    max-height: 200px; /* Limit the height for scrolling */
+    overflow-y: auto; /* Enable vertical scroll if content exceeds height */
+}
+
+.feedback-item {
+    background-color: #ffffff; /* White background for each feedback */
+    border: 1px solid #ff6f61; /* Border color */
+    border-radius: 10px; /* Rounded corners for feedback boxes */
+    padding: 10px; /* Padding inside the feedback box */
+    margin-bottom: 10px; /* Space below each feedback item */
+}
+
+.feedback-item strong {
+    color: #ff4081; /* Strong name color */
+}
+
+/* Dark Mode Adjustments */
+body.dark #feedback-section,
+body.dark .feedback-section,
+body.dark .feedback-item {
+    background-color: #212121; /* Dark background for dark mode */
+    color: #ffffff; /* Light text for dark mode */
+}
+
+body.dark .feedback-item {
+    border: 1px solid #ff6f61; /* Maintain border color for dark mode */
 }
