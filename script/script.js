@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const correctGuess = "thirdwheel"; // Replace with the actual answer
+    const correctGuess = "thirdwheel"; 
     const guessButton = document.getElementById("submit-guess");
     const messageElement = document.getElementById("game-message");
     const gameContainer = document.getElementById("game-container");
     const mainContent = document.getElementById("main-content");
 
-    if (guessButton) {
+    // Guessing Game Logic
+    if (guessButton && messageElement && gameContainer && mainContent) {
         guessButton.addEventListener("click", function () {
             const userGuess = document.getElementById("snack-guess").value.trim();
 
@@ -13,9 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 messageElement.innerText = "🎉 Correct! Welcome to the world of MilkShake and Sahil Shake! 🎉";
                 gameContainer.style.display = "none"; // Hide guessing game
                 mainContent.style.display = "block"; // Show main content
+                window.scrollTo(0, 0); // Scroll to the top
 
-                // Play Ishq Risk audio after a correct guess
                 const ishqRiskAudio = new Audio('public/Isq Risk.mp3'); // Path to the audio file
+                ishqRiskAudio.volume = 0.2; // Set volume to 20%
                 ishqRiskAudio.play().catch((error) => {
                     console.error("Error playing audio: ", error);
                 });
@@ -23,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 messageElement.innerText = "❌ Wrong guess! Try again!";
             }
         });
+    } else {
+        console.error("One or more elements are missing: submit-guess, game-message, game-container, main-content");
     }
 
     // Theme Toggle Logic
@@ -33,10 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function setInitialTheme() {
         if (isDarkMode) {
             themeIcon.src = "public/whitemode.webp"; // Dark mode icon
-            themeToggleBtn.innerHTML = `<img id="theme-icon" src="public/darkmode.webp" alt="Dark Mode Icon" style="width: 20px; height: 20px; margin-right: 5px;"> Switch to york Mode`; // Button text for dark mode
+            themeToggleBtn.innerHTML = `<img id="theme-icon" src="public/darkmode.webp" alt="Dark Mode Icon" style="width: 20px; height: 20px; margin-right: 5px;"> Switch to York Mode`; // Button text for dark mode
         } else {
             themeIcon.src = "public/darkmode.webp"; // Light mode icon
-            themeToggleBtn.innerHTML = `<img id="theme-icon" src="public/whitemode.webp" alt="White Mode Icon" style="width: 20px; height: 20px; margin-right: 5px;"> Switch to Jivi Mode`; // Button text for light mode
+            themeToggleBtn.innerHTML = `<img id="theme-icon" src="public/whitemode.webp" alt="White Mode Icon" style="width: 20px; height: 20px; margin-right: 5px;"> Switch to Jvi Mode`; // Button text for light mode
         }
     }
     
@@ -48,54 +52,51 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector('h1').classList.toggle('dark');
             document.querySelectorAll('h2').forEach(h2 => h2.classList.toggle('dark'));
             document.querySelectorAll('button').forEach(button => button.classList.toggle('dark'));
-    
-            // Toggle the mode
             isDarkMode = !isDarkMode; // Toggle state after updating the theme
             setInitialTheme(); // Set the theme for the new state
         });
     }
-    
+
     // MilkShake's talk more button
-// Get action div once to improve efficiency
-const actionDiv = document.getElementById("actions");
+    const actionDiv = document.getElementById("actions");
 
-// Function to handle MilkShake button click
-const handleMilkShakeButtonClick = () => {
-    const milkshakeResponses = [
-        "MilkShake just found out that unicorns love chocolate milk!",
-        "Did you know MilkShake once tried to convince a cow to make strawberry milk?",
-        "MilkShake believes that talking to fruit makes them grow sweeter!",
-        "MilkShake has an entire debate on why chocolate should be a primary food group!"
-    ];
-    const randomResponse = milkshakeResponses[Math.floor(Math.random() * milkshakeResponses.length)];
-    actionDiv.innerHTML = `<p>${randomResponse}</p>`;
-    actionDiv.style.color = "#ff4081"; // MilkShake color
-};
+    // Function to handle MilkShake button click
+    const handleMilkShakeButtonClick = () => {
+        const milkshakeResponses = [
+            "MilkShake just found out that unicorns love chocolate milk!",
+            "Did you know MilkShake once tried to convince a cow to make strawberry milk?",
+            "MilkShake believes that talking to fruit makes them grow sweeter!",
+            "MilkShake has an entire debate on why chocolate should be a primary food group!"
+        ];
+        const randomResponse = milkshakeResponses[Math.floor(Math.random() * milkshakeResponses.length)];
+        actionDiv.innerHTML = `<p>${randomResponse}</p>`;
+        actionDiv.style.color = "#ff4081"; // MilkShake color
+    };
 
-// Function to handle Sahil Shake button click
-const handleSahilShakeButtonClick = () => {
-    const sahilResponses = [
-        "Sahil Shake thinks that dancing with spoons is the ultimate workout!",
-        "Did you know Sahil once tried to shake hands with a jellyfish? That was a weird day!",
-        "Sahil Shake just made a dance move called 'The Wobble Shake'!",
-        "Sahil believes that pancakes should be served with high-fives!"
-    ];
-    const randomResponse = sahilResponses[Math.floor(Math.random() * sahilResponses.length)];
-    actionDiv.innerHTML = `<p>${randomResponse}</p>`;
-    actionDiv.style.color = "#00bcd4"; // Sahil color
-};
+    // Function to handle Sahil Shake button click
+    const handleSahilShakeButtonClick = () => {
+        const sahilResponses = [
+            "Sahil Shake thinks that dancing with spoons is the ultimate workout!",
+            "Did you know Sahil once tried to shake hands with a jellyfish? That was a weird day!",
+            "Sahil Shake just made a dance move called 'The Wobble Shake'!",
+            "Sahil believes that pancakes should be served with high-fives!"
+        ];
+        const randomResponse = sahilResponses[Math.floor(Math.random() * sahilResponses.length)];
+        actionDiv.innerHTML = `<p>${randomResponse}</p>`;
+        actionDiv.style.color = "#00bcd4"; // Sahil color
+    };
 
-// MilkShake button event listener
-const talkMoreButton = document.getElementById("talkMore");
-if (talkMoreButton) {
-    talkMoreButton.addEventListener("click", handleMilkShakeButtonClick);
-}
+    // MilkShake button event listener
+    const talkMoreButton = document.getElementById("talkMore");
+    if (talkMoreButton) {
+        talkMoreButton.addEventListener("click", handleMilkShakeButtonClick);
+    }
 
-// Sahil Shake button event listener
-const sahilShakeButton = document.getElementById("shakeItOff");
-if (sahilShakeButton) {
-    sahilShakeButton.addEventListener("click", handleSahilShakeButtonClick);
-}
+    // Sahil Shake button event listener
+    const sahilShakeButton = document.getElementById("shakeItOff");
+    if (sahilShakeButton) {
+        sahilShakeButton.addEventListener("click", handleSahilShakeButtonClick);
+    }
 
     // Play Sahil's audio
     const sahilAudioButton = document.getElementById("playAudio");
@@ -179,64 +180,34 @@ if (sahilShakeButton) {
             timerDisplay.textContent = timeLeft;
             if (timeLeft <= 0) {
                 clearInterval(timer);
-                alert("Time's up! Moving to the next question."); // Alert user when time's up
-                nextQuestion(); // Automatically go to the next question
+                selectAnswer(-1); // Time's up
             }
-        }, 1000); // Update every second
+        }, 1000);
     }
     
-    function selectAnswer(selectedIndex) {
+    function selectAnswer(index) {
+        clearInterval(timer); // Stop the timer when an answer is selected
         const correctAnswerIndex = questions[currentQuestionIndex].answer;
-        if (selectedIndex === correctAnswerIndex) {
+
+        if (index === correctAnswerIndex) {
             score++;
+            alert("Correct!");
+        } else {
+            alert("Wrong! The correct answer was: " + questions[currentQuestionIndex].options[correctAnswerIndex]);
         }
-        clearInterval(timer); // Clear timer when an answer is selected
-        nextButton.style.display = "block"; // Show next button when answer is selected
-    }
-    
-    if (nextButton) {
-        nextButton.addEventListener("click", nextQuestion);
-    }
-    
-    function nextQuestion() {
+
         currentQuestionIndex++;
         if (currentQuestionIndex < totalQuestions) {
-            displayQuestion();
-            nextButton.style.display = "none"; // Hide next button until the next question is answered
+            nextButton.style.display = "block"; // Show next button if there are more questions
         } else {
-            endQuiz();
+            alert("Quiz finished! Your score: " + score + "/" + totalQuestions);
+            quizContainer.style.display = "none"; // Hide quiz container
         }
     }
     
-    function endQuiz() {
-        clearInterval(timer); // Ensure the timer is cleared
-        quizMusic.pause(); // Stop the music
-        alert(`Quiz Finished! Your score: ${score}/${totalQuestions}`);
-    }
-    
-    // Lazy Load Images Logic
-    const lazyLoadImages = document.querySelectorAll(".lazy-load");
-    if (lazyLoadImages.length > 0) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.getAttribute('data-src'); // Use data-src for the actual image path
-                    img.classList.add("loaded");
-                    observer.unobserve(img); // Stop observing once the image is loaded
-                }
-            });
-        });
-
-        lazyLoadImages.forEach(image => {
-            imageObserver.observe(image);
-        });
-    }
+    nextButton.addEventListener("click", displayQuestion);
 });
 
-// script.js
-
-// Array of image paths
 const images = [
     "public/screenshots/1.png",
     "public/screenshots/2.png",
@@ -252,9 +223,7 @@ const images = [
 const currentImage = document.getElementById('current-image');
 const randomButton = document.getElementById('random-button');
 
-// Function to show a random image
 function showRandomImage() {
-    // Generate a random index based on the length of the images array
     const randomIndex = Math.floor(Math.random() * images.length);
     
     // Update the image source
@@ -263,3 +232,32 @@ function showRandomImage() {
 
 // Event listener for the button
 randomButton.addEventListener('click', showRandomImage);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const submitFeedbackButton = document.getElementById("submit-feedback");
+    const feedbackContainer = document.getElementById("feedback-container");
+
+    submitFeedbackButton.addEventListener("click", () => {
+        const userName = document.getElementById("user-name").value.trim();
+        const userFeedback = document.getElementById("user-feedback").value.trim();
+
+        if (userName && userFeedback) {
+            const feedbackItem = document.createElement("div");
+            feedbackItem.classList.add("feedback-item");
+            feedbackItem.innerHTML = `<strong>${userName}</strong>: ${userFeedback}`;
+            feedbackContainer.appendChild(feedbackItem);
+
+            // Clear the input fields after submission
+            document.getElementById("user-name").value = '';
+            document.getElementById("user-feedback").value = '';
+        } else {
+            alert("Please enter your name and feedback!");
+        }
+    });
+});
+
+function displayFeedback(name, message) {
+    const feedbackElement = document.getElementById("feedback");
+    const feedbackMessage = `<strong>${name}:</strong> ${message}`;
+    feedbackElement.innerHTML += `<p>${feedbackMessage}</p>`; // Append feedback
+}
