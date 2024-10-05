@@ -74,14 +74,16 @@
         <div class="fun-btns">
             <button id="start-quiz" aria-label="Take a Quiz!">Take a Quiz!</button>
         </div>
-
+        
         <div id="quiz-container" style="display: none;">
             <h2 id="question"></h2>
             <div id="options"></div>
-            <div id="timer"></div>
+            <div id="timer">Time left: <span id="time-left">30</span> seconds</div>
             <button id="next-quiz-button" style="display: none;" aria-label="Next Question">Next Question</button>
         </div>
+        <audio id="quiz-music" src="public/KBC Timer.mp3" loop></audio>
 
+        
         <!-- Footer Section -->
         <footer>
             <p>Made with ❤ by their not-so-cringe friend, but this page says otherwise 😬</p>
