@@ -1,3 +1,4 @@
+/* Body Styling */
 body {
     font-family: 'Comic Sans MS', sans-serif;
     background: #fff;
@@ -5,12 +6,14 @@ body {
     color: #444;
 }
 
+/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
 }
 
+/* Headings */
 h1 {
     font-size: 2.5em;
     color: #ff4081;
@@ -18,12 +21,14 @@ h1 {
     animation: fadeIn 2s ease-in-out;
 }
 
+/* Photo Gallery */
 .photo-gallery {
     display: flex;
     flex-direction: column; /* Stack the button below the image */
     align-items: center; /* Center align the items */
 }
 
+/* Photo Frame Styling */
 .photo-frame {
     width: 100%; /* Responsive */
     max-width: 200px; /* Limit max size */
@@ -32,6 +37,7 @@ h1 {
     border: 5px solid #ff6f61; /* Adjust border color */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    transition: transform 0.3s ease-in-out;
 }
 
 #current-image {
@@ -40,7 +46,7 @@ h1 {
     object-fit: cover; /* Cover the frame without distortion */
 }
 
-/* Keep button visible */
+/* Button Styling */
 #next-button {
     margin-top: 15px; /* Space above the button */
     padding: 12px 25px; /* Adjust padding as needed */
@@ -57,7 +63,7 @@ h1 {
     transform: scale(1.05); /* Scale effect on hover */
 }
 
-/* Hover effects for photo frames */
+/* Hover Effects for Photo Frames */
 .photo-frame:hover {
     transform: rotate(10deg) scale(1.1);
 }
@@ -66,7 +72,7 @@ h1 {
     transform: scale(1.2);
 }
 
-/* Fullscreen image styling */
+/* Fullscreen Image Styling */
 .fullscreen-image {
     position: fixed;
     top: 0;
@@ -94,7 +100,7 @@ h1 {
     visibility: visible;
 }
 
-/* Close button styling */
+/* Close Button Styling */
 .fullscreen-image .close-btn {
     position: absolute;
     top: 20px;
@@ -119,20 +125,63 @@ h1 {
     100% { opacity: 1; }
 }
 
-/* Responsive styles for smaller screens */
+/* Responsive Styles for Smaller Screens */
 @media (max-width: 600px) {
+    /* Adjust photo gallery for mobile */
     .photo-gallery {
         flex-direction: column;
         align-items: center;
     }
 
+    /* Increase size of photo frame for mobile */
     .photo-frame {
         width: 100%; /* Full width for mobile */
         max-width: 300px; /* Limit max width */
         margin: 10px 0; /* Adjust margin */
     }
 
+    /* Mobile optimization for fullscreen images */
     .fullscreen-image img {
         max-width: 95%; /* Adjust for mobile */
     }
+
+    /* Button adjustments for mobile */
+    #next-button {
+        width: 100%; /* Full-width button for smaller screens */
+    }
+}
+
+#feedback-section {
+    margin-top: 40px;
+    padding: 20px;
+    border: 2px solid #ff6f61;
+    border-radius: 10px;
+    background-color: #fff0f5; /* Light pink background */
+}
+
+#feedback-section input,
+#feedback-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ff4081;
+}
+
+#submit-feedback {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#feedback-list-section {
+    margin-top: 20px;
+}
+
+#feedback-list {
+    list-style-type: none;
+    padding: 0;
 }
