@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Create Fullscreen Image Modal
     const fullscreenDiv = document.createElement('div');
     fullscreenDiv.classList.add('fullscreen-image');
-    fullscreenDiv.innerHTML = `<span class="close-btn">&times;</span><img src="" alt="Enlarged Screenshot">`;
+    fullscreenDiv.innerHTML = `<span class="close-btn">&times;</span><img src="" alt="">`;
     document.body.appendChild(fullscreenDiv);
 
     const fullscreenImg = fullscreenDiv.querySelector('img');
