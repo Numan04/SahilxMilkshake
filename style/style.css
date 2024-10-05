@@ -1,0 +1,314 @@
+/* Default Light Theme */
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    background: linear-gradient(135deg, #fdfd96, #ffd1dc);
+    color: #333;
+    padding: 20px;
+    margin: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3.5em;
+    color: #ff6f61;
+    font-weight: bold;
+    animation: bounce 2s infinite; /* Added animation */
+}
+
+.intro {
+    text-align: center;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.header {
+    text-align: center; /* Center all elements in the header */
+    margin-bottom: 40px; /* Add space below the header */
+}
+
+.theme-btn {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s; /* Added transform */
+    font-size: 1.2em;
+    margin-top: 10px; /* Space above the button */
+}
+
+.theme-btn:hover {
+    background-color: #ff1a57;
+    transform: scale(1.1); /* Scale effect on hover */
+}
+
+.profile {
+    margin-bottom: 50px;
+    text-align: center; /* Center-align text */
+}
+
+.profile-pic {
+    width: 120px; /* Size of the profile picture */
+    height: 120px; /* Size of the profile picture */
+    border-radius: 50%; /* Circular shape */
+    margin: 20px auto; /* Center the image with margin */
+    border: 4px solid #ff6f61; /* Add a border for fun */
+    transition: transform 0.3s ease; /* Add transition for scaling */
+}
+
+.profile-pic:hover {
+    transform: scale(1.1); /* Scale effect on hover */
+}
+
+h2 {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    color: #ff4081;
+    transition: color 0.3s ease-in-out;
+}
+
+.milkshake {
+    color: #ff4081;
+}
+
+.sahilshake {
+    color: #00bcd4;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.7;
+}
+
+.fun-btns {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+button {
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Added transform */
+    flex: 1 1 45%; /* Make buttons responsive */
+    margin: 5px; /* Space between buttons */
+}
+
+button:hover {
+    background-color: #008c9e;
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+#actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Big, Confusing Love Story */
+.love-story {
+    margin-top: 60px;
+    background-color: #ffebee;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.love-story h2 {
+    color: #ff6f61;
+    font-size: 2.5em;
+}
+
+.love-para {
+    font-size: 1.3em;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Dark Theme */
+body.dark {
+    background: linear-gradient(135deg, #3c3c54, #4e4e7a);
+    color: #fff;
+}
+
+.container.dark {
+    background: #3f3f4f;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+h1.dark, h2.dark {
+    color: #ff6f61; /* Retain the h1 color in dark mode */
+}
+
+.theme-btn.dark {
+    background-color: #4a90e2;
+}
+
+.theme-btn.dark:hover {
+    background-color: #357ab8;
+}
+
+button.dark {
+    background-color: #4a90e2;
+}
+
+button.dark:hover {
+    background-color: #357ab8;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em; /* Adjusted header size */
+    }
+
+    h2 {
+        font-size: 2em; /* Adjusted subheader size */
+    }
+
+    .intro {
+        font-size: 1.1em; /* Adjusted intro text size */
+    }
+
+    p {
+        font-size: 1em; /* Adjusted paragraph size */
+    }
+
+    .profile-pic {
+        width: 100px; /* Adjusted image size for mobile */
+        height: 100px; /* Adjusted image size for mobile */
+    }
+
+    .fun-btns {
+        flex-direction: column; /* Stack buttons on small screens */
+    }
+
+    button {
+        font-size: 1em; /* Adjusted button size */
+        width: 100%; /* Full width buttons */
+    }
+}
+
+/* Game Styles */
+.game-container {
+    text-align: center;
+    background: #ffebee;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+#snack-guess {
+    padding: 10px;
+    font-size: 1.2em;
+    border: 2px solid #ff4081;
+    border-radius: 5px;
+    width: 60%;
+    margin-top: 10px;
+}
+
+#submit-guess {
+    padding: 10px 20px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.3s; /* Add transition */
+}
+
+#submit-guess:hover {
+    background-color: #ff1a57;
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+#game-message {
+    margin-top: 15px;
+    font-size: 1.2em;
+    color: #ff4081;
+}
+
+/* Tooltip Styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position the tooltip above the text */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+#theme-icon {
+    display: inline; /* Make sure the icon is visible */
+}
+
+#theme-toggle {
+    display: flex; 
+    align-items: center;
+    cursor: pointer; 
+    justify-items: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#theme-icon {
+    width: 20px; 
+    height: 20px;
+    margin-right: 5px; 
+}

@@ -1,0 +1,138 @@
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    background: #fff;
+    padding: 20px;
+    color: #444;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #ff4081;
+    margin-bottom: 30px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.photo-gallery {
+    display: flex;
+    flex-direction: column; /* Stack the button below the image */
+    align-items: center; /* Center align the items */
+}
+
+.photo-frame {
+    width: 100%; /* Responsive */
+    max-width: 200px; /* Limit max size */
+    margin: 10px; /* Margin for spacing */
+    border-radius: 15px; /* Optional: Adjust as needed */
+    border: 5px solid #ff6f61; /* Adjust border color */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#current-image {
+    width: 100%; /* Make the image fit */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the frame without distortion */
+}
+
+/* Keep button visible */
+#next-button {
+    margin-top: 15px; /* Space above the button */
+    padding: 12px 25px; /* Adjust padding as needed */
+    border-radius: 25px; /* Optional: Rounding */
+    background-color: #ff6f61; /* Button color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s, transform 0.3s; /* Hover effects */
+}
+
+#next-button:hover {
+    background-color: #ff1a57; /* Button hover color */
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* Hover effects for photo frames */
+.photo-frame:hover {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.photo-frame:hover img {
+    transform: scale(1.2);
+}
+
+/* Fullscreen image styling */
+.fullscreen-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.fullscreen-image img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.fullscreen-image.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Close button styling */
+.fullscreen-image .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2); /* Slight background for visibility */
+    border: none;
+    border-radius: 5px;
+    padding: 10px; /* Padding for better hit area */
+    transition: background 0.3s; /* Transition for hover effect */
+}
+
+.fullscreen-image .close-btn:hover {
+    background: rgba(255, 255, 255, 0.4); /* Change background on hover */
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 600px) {
+    .photo-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .photo-frame {
+        width: 100%; /* Full width for mobile */
+        max-width: 300px; /* Limit max width */
+        margin: 10px 0; /* Adjust margin */
+    }
+
+    .fullscreen-image img {
+        max-width: 95%; /* Adjust for mobile */
+    }
+}
