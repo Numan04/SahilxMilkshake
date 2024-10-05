@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             themeToggleBtn.innerHTML = `<img id="theme-icon" src="public/darkmode.webp" alt="Dark Mode Icon" style="width: 20px; height: 20px; margin-right: 5px;"> Switch to York Mode`; // Button text for dark mode
         } else {
             themeIcon.src = "public/darkmode.webp"; // Light mode icon
-            themeToggleBtn.innerHTML = `<img id="theme-icon" src="public/whitemode.webp" alt="White Mode Icon" style="width: 20px; height: 20px; margin-right: 5px;"> Switch to Jvi Mode`; // Button text for light mode
+            themeToggleBtn.innerHTML = `<img id="theme-icon" src="public/whitemode.webp" alt="White Mode Icon" style="width: 20px; height: 20px; margin-right: 5px;"> Switch to jivi Mode`; // Button text for light mode
         }
     }
     
