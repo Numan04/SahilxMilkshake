@@ -134,100 +134,86 @@ if (sahilShakeButton) {
 
     let currentQuestionIndex = 0;
     let score = 0;
-    let timer;
-    const totalQuestions = questions.length;
-
-    // Declare background music for the quiz
-    const quizMusic = new Audio('public/KBC Timer.mp3');
-    quizMusic.loop = true;
-
-    const startQuizButton = document.getElementById("start-quiz");
-    const nextButton = document.getElementById("next-button");
-
-    if (startQuizButton) {
-        startQuizButton.addEventListener("click", function () {
-            startQuiz();
-            quizMusic.play().catch((error) => {
-                console.error("Error playing quiz music: ", error);
-            });
-        });
-    }
-
+    let timer; // This will hold the interval ID
+    const totalQuestions = questions.length; // Ensure this is correctly set
+    const nextButton = document.getElementById("next-quiz-button");
+    const startButton = document.getElementById("start-quiz");
+    const quizContainer = document.getElementById("quiz-container");
+    const timerDisplay = document.getElementById("time-left");
+    const quizMusic = document.getElementById("quiz-music");
+    
+    startButton.addEventListener("click", startQuiz);
+    
     function startQuiz() {
-        const quizContainer = document.getElementById("quiz-container");
-        if (quizContainer) {
-            quizContainer.style.display = "block";
-            displayQuestion();
-        }
+        score = 0;
+        currentQuestionIndex = 0;
+        quizContainer.style.display = "block"; // Show quiz container
+        quizMusic.play(); // Start playing KBC music
+        displayQuestion();
     }
-
+    
     function displayQuestion() {
-        clearTimeout(timer);
-        const currentQuestion = questions[currentQuestionIndex];
         const questionElement = document.getElementById("question");
-        const optionsContainer = document.getElementById("options");
-
-        if (questionElement && optionsContainer) {
-            questionElement.innerText = currentQuestion.question;
-            optionsContainer.innerHTML = ''; // Clear previous options
-
-            currentQuestion.options.forEach((option, index) => {
-                const button = document.createElement("button");
-                button.innerText = option;
-                button.onclick = () => selectAnswer(index);
-                optionsContainer.appendChild(button);
-            });
-
-            startTimer();
-        }
+        const optionsElement = document.getElementById("options");
+    
+        // Display the current question and options
+        questionElement.textContent = questions[currentQuestionIndex].question;
+        optionsElement.innerHTML = ""; // Clear previous options
+    
+        questions[currentQuestionIndex].options.forEach((option, index) => {
+            const button = document.createElement("button");
+            button.textContent = option;
+            button.onclick = () => selectAnswer(index); // Attach the click event to select the answer
+            optionsElement.appendChild(button);
+        });
+    
+        nextButton.style.display = "none"; // Hide next button initially
+        startTimer(); // Start the timer for this question
     }
-
+    
     function startTimer() {
-        let timeLeft = 30;
-        const timerElement = document.getElementById("timer");
-
-        if (timerElement) {
-            timerElement.innerText = `Time left: ${timeLeft} seconds`;
-            timer = setInterval(() => {
-                timeLeft--;
-                timerElement.innerText = `Time left: ${timeLeft} seconds`;
-                if (timeLeft <= 0) {
-                    clearInterval(timer);
-                    nextQuestion(); // Automatically go to the next question when time's up
-                }
-            }, 1000);
-        }
+        let timeLeft = 30; // Set time limit for each question (30 seconds)
+        timerDisplay.textContent = timeLeft; // Display initial time
+        timer = setInterval(() => {
+            timeLeft--;
+            timerDisplay.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                alert("Time's up! Moving to the next question."); // Alert user when time's up
+                nextQuestion(); // Automatically go to the next question
+            }
+        }, 1000); // Update every second
     }
-
+    
     function selectAnswer(selectedIndex) {
         const correctAnswerIndex = questions[currentQuestionIndex].answer;
         if (selectedIndex === correctAnswerIndex) {
             score++;
         }
-        clearInterval(timer);
-        nextButton.style.display = "block";
+        clearInterval(timer); // Clear timer when an answer is selected
+        nextButton.style.display = "block"; // Show next button when answer is selected
     }
-
+    
     if (nextButton) {
         nextButton.addEventListener("click", nextQuestion);
     }
-
+    
     function nextQuestion() {
         currentQuestionIndex++;
         if (currentQuestionIndex < totalQuestions) {
             displayQuestion();
-            nextButton.style.display = "none";
+            nextButton.style.display = "none"; // Hide next button until the next question is answered
         } else {
             endQuiz();
         }
     }
-
+    
     function endQuiz() {
-        clearInterval(timer);
+        clearInterval(timer); // Ensure the timer is cleared
+        quizMusic.pause(); // Stop the music
         alert(`Quiz Finished! Your score: ${score}/${totalQuestions}`);
-        quizMusic.pause();
     }
-
+    
     // Lazy Load Images Logic
     const lazyLoadImages = document.querySelectorAll(".lazy-load");
     if (lazyLoadImages.length > 0) {
