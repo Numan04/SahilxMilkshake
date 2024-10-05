@@ -9,14 +9,17 @@
 </head>
 <body>
     <div class="game-container" id="game-container">
-        <h1>Welcome to the Guessing Game! 🎮</h1>
+        <h1>🌟 Welcome to the Guessing Game! 🎮</h1>
         <p>Why does Bourbon always seem to appear when MilkShake and Sahil Shake are together? Answer to unlock the real site!</p>
-        <input type="text" id="snack-guess" placeholder="Enter your guess..." aria-label="Enter your guess">
-        <button id="submit-guess" aria-label="Submit Guess">Submit Guess</button>
-        <div id="game-message"></div>
+        
+        <div class="input-container">
+            <input type="text" id="snack-guess" placeholder="🤔 Enter your guess..." aria-label="Enter your guess">
+            <button id="submit-guess" aria-label="Submit Guess">🕵️‍♂️ Submit Guess</button>
+        </div>
+        
+        <div id="game-message" class="game-message"></div>
     </div>
-
-    <div class="container" id="main-content" style="display: none;">
+        <div class="container" id="main-content" style="display: none;">
         <div class="header">
             <h1>Welcome to the *Totally* Real Love Story of MilkShake & Sahil Shake 💖</h1>
             <p class="intro">Warning: Extreme cringe content ahead.</p>
@@ -83,6 +86,19 @@
         </div>
         <audio id="quiz-music" src="public/KBC Timer.mp3" loop></audio>
 
+        
+        <div class="feedback-section">
+            <h2>🌟 Feedback from Our Cuties 🌟</h2>
+            <div class="feedback-container" id="feedback-container">
+                <!-- Feedback items will be appended here -->
+            </div>
+            <div class="cutie-form">
+                <h3>💬 Drop Your Feedback!</h3>
+                <input type="text" id="user-name" placeholder="Your Name" aria-label="Enter your name">
+                <textarea id="user-feedback" placeholder="Share your thoughts about MilkShake & Sahil Shake!" aria-label="Enter your feedback"></textarea>
+                <button id="submit-feedback" aria-label="Submit Feedback">Submit Feedback</button>
+            </div>
+        </div>
         
         <!-- Footer Section -->
         <footer>
