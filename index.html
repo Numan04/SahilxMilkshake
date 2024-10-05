@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MilkShake & Sahil Shake</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" type="image/x-icon" href="public/favicon.png">
+</head>
+<body>
+    <div class="game-container" id="game-container">
+        <h1>Welcome to the Guessing Game! 🎮</h1>
+        <p>Why does Bourbon always seem to appear when MilkShake and Sahil Shake are together? Answer to unlock the real site!</p>
+        <input type="text" id="snack-guess" placeholder="Enter your guess..." aria-label="Enter your guess">
+        <button id="submit-guess" aria-label="Submit Guess">Submit Guess</button>
+        <div id="game-message"></div>
+    </div>
+
+    <div class="container" id="main-content" style="display: none;">
+        <div class="header">
+            <h1>Welcome to the *Totally* Real Love Story of MilkShake & Sahil Shake 💖</h1>
+            <p class="intro">Warning: Extreme cringe content ahead.</p>
+            <button id="theme-toggle">
+                <img id="theme-icon" src="public/darkmode.webp" alt="Theme Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+                Switch to White Mode
+            </button>
+        </div>
+
+        <div class="profile">
+            <img src="public/milkshake.webp" alt="MilkShake" class="profile-pic">
+            <h2>About <span class="milkshake">MilkShake</span></h2>
+            <p class="talk">
+                If you ever need someone to fill an awkward silence, call MilkShake! She’s the queen of conversations, oversharing, and the absolute *Shakespeare* of unnecessary stories. Whether it’s about her latest thoughts on the universe, why her coffee tasted weird, or why cats should be ruling the world, she’s got you covered. Basically, she's the soundtrack to life. <strong>#NeverEndingTalks</strong>
+            </p>
+        </div>
+
+        <div class="profile">
+            <img src="public/sahil.webp" alt="Sahil Shake" class="profile-pic">
+            <h2>About <span class="sahilshake">Sahil Shake</span></h2>
+            <p class="chill">
+                On the other side, we have Sahil Shake, the dude who has mastered the art of nodding. Always chill, always vibing, and he can shake off any nonsense thrown his way. Where MilkShake talks, Sahil listens (or at least pretends to while he’s nodding to some beat in his head). When the world’s falling apart, he’s probably just thinking about his next nap. That’s his superpower.
+            </p>
+        </div>
+
+        <div class="love-story">
+            <h2>The Most Confusing Love Story Ever Told 🌹</h2>
+            <p class="love-para">
+                It was a Tuesday morning, or maybe it was Thursday evening—no one remembers. MilkShake was arguing with a vending machine over why it refused to give her chips. Meanwhile, Sahil Shake was sitting by, watching a butterfly that may or may not have been plotting world domination. Suddenly, in the middle of the chaos, they locked eyes… or maybe they just bumped into each other trying to reach the last cookie at a cafe (who really knows?). From that moment, it was clear: this was love. Or hunger. Either way, their journey began.
+                <br><br>
+                They’ve been through thick and thin—like the time MilkShake spent three hours explaining why turtles are secretly the masterminds behind human civilization, and Sahil Shake just nodded, pretending to understand. And let’s not forget the epic saga of the time they tried to bake a cake and ended up inventing a new type of... pancake... pizza... thing. Through it all, their love has been as unexplainable as a cat’s fascination with lasers. They’re the Romeo and Juliet of snacks, the Bonnie and Clyde of awkward conversations. And honestly, it’s not the love story we deserve, but the one we ended up with anyway.
+                <strong>#MilkShakeAndChill</strong>
+            </p>
+        </div>
+
+        <div class="container">
+            <h1>Goofy Chat Screenshots of MilkShake & Sahil 🎉</h1>
+            <div class="photo-gallery">
+                <div class="photo-frame" id="photo-frame">
+                    <img id="current-image" src="placeholder.jpg" alt="Chat Screenshot" style="width: 100%; height: auto;">
+                </div>
+                <button id="random-button" class="theme-btn">Get a Random Goofy Chat Screenshot of Sahil or MilkShake</button>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="fun-btns">
+                <button id="talkMore" type="button" aria-label="Let MilkShake Talk More" role="button">Let MilkShake Talk More</button>
+                <button id="shakeItOff" type="button" aria-label="Let Sahil Shake it Off" role="button">Let Sahil Shake it Off</button>
+                <button id="playAudio" aria-label="Play Sahil Shake's Audio">🎶 Play Sahil Shake's Audio</button>
+            </div>
+            <div id="actions"></div> <!-- This is the div where responses will be displayed -->
+        </div>
+
+        <div class="fun-btns">
+            <button id="start-quiz" aria-label="Take a Quiz!">Take a Quiz!</button>
+        </div>
+
+        <div id="quiz-container" style="display: none;">
+            <h2 id="question"></h2>
+            <div id="options"></div>
+            <div id="timer"></div>
+            <button id="next-quiz-button" style="display: none;" aria-label="Next Question">Next Question</button>
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>Made with ❤ by their not-so-cringe friend, but this page says otherwise 😬</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="script/script.js" defer></script>
+    <script src="script/birds.js" defer></script>
+</body>
+</html>
